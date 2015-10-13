@@ -1,0 +1,9 @@
+name: blink
+version: 1.0.0
+vendor: Domas Monkus <domas.monkus@canonical.com>
+binaries:
+  - name: bin/blink
+services:
+  - name: blinker
+    description: blinker
+    start: bin/blink
