@@ -1,5 +1,5 @@
-build: bin/blink
+build: bin/failer
 	snappy build .
 
-bin/blink: src/main.go
-	env GOOS=linux GOARCH=arm go build -o bin/blink src/main.go
+bin/failer: src/failer.go
+	env GOOS=linux GOARCH=arm go build -o bin/failer src/failer.go

@@ -1,2 +1,1 @@
-Blink is a simple demonstration of a snappy app controlling
-piglow.
+watcher monitors juju.fail for blocked master branch and flashes piglow LEDs accordingly.
