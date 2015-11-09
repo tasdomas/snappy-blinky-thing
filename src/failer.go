@@ -82,8 +82,6 @@ func get_juju_status() (JujuFail, error) {
 }
 
 func main() {
-	var knownStatus *JujuFail
-
 	if ok := piglow.HasPiGlow(); !ok {
 		log.Fatalf("piglow not available")
 	}
@@ -106,19 +104,12 @@ MAINLOOP:
 				log.Printf("error: %v", err)
 				continue
 			}
-			// Ignore unchanged status.
-			if knownStatus != nil {
-				if len(current.Status[WatchedBranch]) == len(knownStatus.Status[WatchedBranch]) {
-					continue
-				}
-			}
 
 			color := piglow.Green
 			if len(current.Status[WatchedBranch]) != 0 {
 				color = piglow.Red
 			}
 			colors <- color
-			knownStatus = &current
 		case <-sigChan:
 			break MAINLOOP
 		}
